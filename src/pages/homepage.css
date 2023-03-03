@@ -1,0 +1,55 @@
+.homepage {
+    min-height: 100vh;
+    height: 100%;
+    padding: 10px 50px;
+    border: 2px solid crimson;
+    border-radius: 4px;
+    margin: 10px 20px;
+}
+.homepage-header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 2px solid crimson;
+    box-sizing: border-box;
+}
+.homepage-header-btn {
+    background-color:crimson ;
+    color:white ;
+    border: 0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    height: 40px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-sizing: border-box;
+    margin-left: 10px;
+}
+.homepage-header-btn:hover {
+    color:crimson ;
+    background-color:white ;
+    border: 1px solid crimson;
+}
+
+@media screen and (max-width:1100px){
+    .homepage {
+        padding: 10px 40px;
+    }
+}
+@media screen and (max-width:480px){
+    .homepage {
+        padding: 10px 20px;
+    }
+}
+@media screen and (max-width:320px){
+    .homepage {
+        padding: 5px 10px;
+        margin:5px 10px
+    }
+}
+@media screen and (max-width:280px){
+    .homepage {
+        padding: 2.5px 5px;
+        margin: 2.5px 5px
+    }
+}

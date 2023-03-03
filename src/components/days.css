@@ -1,0 +1,85 @@
+.day-work {
+    color: #2a2a40;
+}
+.day-weekend {
+    color: #b5b5b7;
+}
+.days-wrapper {
+    overflow: hidden;
+}
+.days-array {
+    display: block;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+.days-array::-webkit-scrollbar {
+    display: none;
+}
+.day-item {
+    display: inline-block;
+    border: 2px #3b3b4f solid;
+    padding: 5px;
+    background-color: aliceblue;
+    border-radius: 4px;
+    text-align: center;
+    margin-right: 10px;
+    width: 120px;
+    box-sizing: border-box;
+}
+.day-item-black {
+    display: inline-block;
+    border: 2px #3b3b4f solid;
+    padding: 5px;
+    background-color: aliceblue;
+    border-radius: 4px;
+    text-align: center;
+    margin-right: 10px;
+    width: 120px;
+    box-sizing: border-box;
+    color: #0a0a23 ;
+}
+.day-today {
+    display: inline-block;
+    border: 2px #002ead solid;
+    color: #002ead;
+    padding: 5px;
+    border-radius: 4px;
+    text-align: center;
+    margin-right: 10px;
+    width: 120px;
+    box-sizing: border-box;
+    background-color: aliceblue;
+}
+.move-month-btn {
+    width: 20px;
+    height: 20px;
+}
+.days-header {
+    display: flex;
+    padding: 10px 0px;
+    gap: 20px;
+    align-items: center;
+}
+.days-array p {
+    font-size: 8px;
+}
+.tasks-status {
+    display: inline-flex;
+    justify-content: center;
+    gap: 2px;
+    flex-wrap: wrap;
+    min-height: 10px;
+}
+.task-undone {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #d92626;
+}
+.task-done {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #139424;
+}
