@@ -23,6 +23,7 @@
         "prettier"
     ],
     "rules": {
+        "no-console": "error",
         "react/jsx-filename-extension": [
             "error",
             {
