@@ -12,8 +12,6 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_APP_ID
 };
 console.log('sas');
-console.log('sas');
-
 
 const app = initializeApp(firebaseConfig);
 export const database = getDatabase(app);
