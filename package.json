@@ -55,7 +55,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "npm run lint",
+      "npm run lint:fix",
       "git add"
     ]
   },

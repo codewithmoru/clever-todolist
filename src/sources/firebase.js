@@ -11,8 +11,10 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_APP_ID
 };
-console.log("sas")
+console.log('sas');
+console.log('sas');
 
-const app = initializeApp(firebaseConfig)
-export const database = getDatabase(app)
+
+const app = initializeApp(firebaseConfig);
+export const database = getDatabase(app);
 export const auth = getAuth();
