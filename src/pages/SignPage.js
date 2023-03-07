@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './signpage.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import Loader from '../components/Loader';
 
 import { auth } from '../sources/firebase';
 import Button from '../components/Button';
@@ -11,6 +12,7 @@ function SignPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -33,11 +35,18 @@ function SignPage() {
     setError(false);
   };
   const handleSignIn = () => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        navigate('/homepage');
-      })
-      .catch((err) => setError(true));
+    setLoader(true);
+    setTimeout(() => {
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          navigate('/homepage');
+          setLoader(false);
+        })
+        .catch((err) => {
+          setError(true);
+          setLoader(false);
+        });
+    }, 1500);
   };
   const onShowPswrd = () => {
     const x = document.querySelector('.sign-input-password');
@@ -60,7 +69,7 @@ function SignPage() {
           </Link>
         </div>
       </div>
-      <div className='sign-content'>
+      { loader ? <Loader /> : <div className='sign-content'>
         <h1>Welcome Back</h1>
         <h3>Hello Again! Sign up to continue!</h3>
         <input
@@ -86,7 +95,7 @@ function SignPage() {
         <h6 className='sign-text-reset' onClick={onReset}>
           RESET PASSWORD
         </h6>
-      </div>
+      </div> }
     </div>
   );
 }

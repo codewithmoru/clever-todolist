@@ -12,7 +12,7 @@ import ProgressBar from './ProgressBar';
 function TaskList({ tasks }) {
   const currentDay = dayjs();
   const [taskValue, setTaskValue] = useState('');
-  const [taskDay, setTaskDay] = useState(currentDay.format('DD.MM.YYYY'));
+  const [taskDay, setTaskDay] = useState(currentDay.format('DD-MM-YYYY'));
   const [taskModal, setTaskModal] = useState(false);
   const [priority, setPrior] = useState('Low');
   const [updateValue, setUpdateValue] = useState({
@@ -29,7 +29,7 @@ function TaskList({ tasks }) {
       id: createId,
       title: taskValue,
       fromDate: currentDay.format('DD.MM.YYYY'),
-      date: taskDay,
+      date: taskDay.split('-').reverse().join('.'),
       status: false,
       priority: priority
     });
@@ -95,7 +95,7 @@ function TaskList({ tasks }) {
             <div>
               <h4>Enter Your Date: </h4>
               <input
-                type='text'
+                type='date'
                 value={taskDay}
                 onChange={(e) => setTaskDay(e.target.value)}
               ></input>

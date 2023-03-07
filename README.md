@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# Innowise Lab Internship: Level 1: Clever to-do list
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Task](https://drive.google.com/file/d/18I1PxOxZn2lwm__YeOtMNoWeiXygKwwN/view)
 
-## Available Scripts
+App was created with the help of Firebase Database architecture and dayjs library.
+We have a basic routing with Authorization  / Registration pages.
+After Firebase validate your data,  it's redirecting on the Homepage.
 
-In the project directory, you can run:
+Custom calendar generated with usage of dayjs library.
+Calendar shows you days from current day to last day of the month.
+With the help of pagination you can see the tasks from the last and next months.
 
-### `npm start`
+During creating a task, Firebase saves your data : day of creating, last day to make this task (due date), priority of the task and title.
+Every created task shows on calendar : day you pick as last day to make this task will show you the status of the task : red for undone, and  green for done.
+Every task has its own logic of updating, you can update your data with the help of newly opened update panel.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This task was made with the help of the list of dependencies, such libraries as :
+- MUI Components Library (Linear progress in Tasks List , Circular progress an Toasts on SignUp / Registration pages , etc.)
+- UUID (to generate unique id's)
+- DayJS (to help us work with calendar data and set data for our usage)
+- React-router-dom (to help us work with app navigation)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Also we use strong linter alliance in our application : ESLint + Prettier + Pre-commit Hook.
+After installing linter and prettier, we rewrite some rules for our code, such as no-console and use-brackets.
+Adding new scripts 'npm run lint' and 'npm run lint:fix' allow us to catch and handle warnings / errors in our code.
+Installing husky-library and lint-staged-library allow us to work with Git-hooks : we pick work with pre-commit.
+This hook stop us before commiting , because it monitors the code for existence of warnings and throw us an error, if it exists.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './regpage.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import Loader from '../components/Loader';
 
 import { auth } from '../sources/firebase';
 import Button from '../components/Button';
@@ -11,6 +12,7 @@ function RegisterPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   const navigate = useNavigate();
 
@@ -26,11 +28,18 @@ function RegisterPage() {
     setError(false);
   };
   const handleCreateUser = () => {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        navigate('/homepage');
-      })
-      .catch((err) => setError(true));
+    setLoader(true);
+    setTimeout(() => {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          navigate('/homepage');
+          setLoader(false);
+        })
+        .catch((err) => {
+          setError(true);
+          setLoader(false);
+        });
+    }, 1500);
   };
 
   const onShowPswrd = () => {
@@ -54,7 +63,7 @@ function RegisterPage() {
           <h3>SIGNUP</h3>
         </div>
       </div>
-      <div className='reg-content'>
+      { loader ? <Loader /> : <div className='reg-content'>
         <h1>You're Welcome</h1>
         <h3>Register to continue!</h3>
         <input
@@ -80,7 +89,7 @@ function RegisterPage() {
         <h6 className='reg-text-reset' onClick={onReset}>
           RESET PASSWORD
         </h6>
-      </div>
+      </div> }
     </div>
   );
 }
