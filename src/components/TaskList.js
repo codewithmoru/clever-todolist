@@ -9,7 +9,7 @@ import { auth, database } from '../sources/firebase';
 
 import ProgressBar from './ProgressBar';
 
-function TaskList({ tasks }) {
+function TaskList({ tasks, loading }) {
   const currentDay = dayjs();
   const [taskValue, setTaskValue] = useState('');
   const [taskDay, setTaskDay] = useState(currentDay.format('DD-MM-YYYY'));
@@ -119,7 +119,7 @@ function TaskList({ tasks }) {
               <h6>PREFERED ACTIONS:</h6>
             </div>
           </div>
-          { tasks.length === 0 && <ProgressBar /> }
+          { loading && <ProgressBar /> }
           { tasks.map((item, index) => {
             return (
               <div className='tasks-arr-item' key={item.id}>

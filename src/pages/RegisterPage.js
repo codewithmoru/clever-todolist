@@ -12,7 +12,7 @@ function RegisterPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
-  const [loader, setLoader] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -28,18 +28,17 @@ function RegisterPage() {
     setError(false);
   };
   const handleCreateUser = () => {
-    setLoader(true);
-    setTimeout(() => {
-      createUserWithEmailAndPassword(auth, email, password)
-        .then(() => {
-          navigate('/homepage');
-          setLoader(false);
-        })
-        .catch((err) => {
-          setError(true);
-          setLoader(false);
-        });
-    }, 1500);
+    setLoading(true);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        navigate('/homepage');
+      })
+      .catch(() => {
+        setError(true);
+      })
+      .finally(() => {
+        setLoading(false)
+      });
   };
 
   const onShowPswrd = () => {
@@ -63,7 +62,7 @@ function RegisterPage() {
           <h3>SIGNUP</h3>
         </div>
       </div>
-      { loader ? <Loader /> : <div className='reg-content'>
+      {loading ? <Loader /> : <div className='reg-content'>
         <h1>You're Welcome</h1>
         <h3>Register to continue!</h3>
         <input
@@ -89,7 +88,7 @@ function RegisterPage() {
         <h6 className='reg-text-reset' onClick={onReset}>
           RESET PASSWORD
         </h6>
-      </div> }
+      </div>}
     </div>
   );
 }

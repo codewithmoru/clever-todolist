@@ -12,7 +12,7 @@ function SignPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
-  const [loader, setLoader] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -35,18 +35,17 @@ function SignPage() {
     setError(false);
   };
   const handleSignIn = () => {
-    setLoader(true);
-    setTimeout(() => {
-      signInWithEmailAndPassword(auth, email, password)
-        .then(() => {
-          navigate('/homepage');
-          setLoader(false);
-        })
-        .catch((err) => {
-          setError(true);
-          setLoader(false);
-        });
-    }, 1500);
+    setLoading(true);
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        navigate('/homepage');
+      })
+      .catch(() => {
+        setError(true);
+      })
+      .finally(() => {
+        setLoading(false)
+      });
   };
   const onShowPswrd = () => {
     const x = document.querySelector('.sign-input-password');
@@ -69,7 +68,7 @@ function SignPage() {
           </Link>
         </div>
       </div>
-      { loader ? <Loader /> : <div className='sign-content'>
+      {loading ? <Loader /> : <div className='sign-content'>
         <h1>Welcome Back</h1>
         <h3>Hello Again! Sign up to continue!</h3>
         <input
@@ -95,7 +94,7 @@ function SignPage() {
         <h6 className='sign-text-reset' onClick={onReset}>
           RESET PASSWORD
         </h6>
-      </div> }
+      </div>}
     </div>
   );
 }

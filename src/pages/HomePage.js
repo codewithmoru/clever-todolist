@@ -13,13 +13,16 @@ function HomePage() {
   const [activeUser, setActiveUser] = useState('');
   const [tasks, setTasks] = useState([]);
   const [pickedDate, setPickedDate] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
+      setLoading(true)
       if (user) {
         onValue(ref(database, `${auth.currentUser.uid}`), (snapshot) => {
           setTasks([]);
+          setLoading(false)
           const data = snapshot.val();
           if (data !== null) {
             Object.values(data).map((element) => {
@@ -40,13 +43,13 @@ function HomePage() {
       .then(() => {
         navigate('/');
       })
-      .catch((err) => navigate('/homepage'));
+      .catch(() => navigate('/homepage'));
   };
   return (
     <div className='homepage'>
       <HomepageHeader activeUser={activeUser} handleSignOut={handleSignOut} />
       <Days tasks={tasks} setPickedDate={setPickedDate} />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} loading={loading} />
     </div>
   );
 }
