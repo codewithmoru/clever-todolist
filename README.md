@@ -1,6 +1,4 @@
-# Innowise Lab Internship: Level 1: Clever to-do list
-
-[Task](https://drive.google.com/file/d/18I1PxOxZn2lwm__YeOtMNoWeiXygKwwN/view)
+# Clever to-do list
 
 App was created with the help of Firebase Database architecture and dayjs library.
 We have a basic routing with Authorization  / Registration pages.
@@ -25,5 +23,3 @@ After installing linter and prettier, we rewrite some rules for our code, such a
 Adding new scripts 'npm run lint' and 'npm run lint:fix' allow us to catch and handle warnings / errors in our code.
 Installing husky-library and lint-staged-library allow us to work with Git-hooks : we pick work with pre-commit.
 This hook stop us before commiting , because it monitors the code for existence of warnings and throw us an error, if it exists.
-
-
