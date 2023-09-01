@@ -37,7 +37,7 @@ function RegisterPage() {
         setError(true);
       })
       .finally(() => {
-        setLoading(false)
+        setLoading(false);
       });
   };
 
@@ -62,7 +62,7 @@ function RegisterPage() {
           <h3>SIGNUP</h3>
         </div>
       </div>
-      {loading ? <Loader /> : <div className='reg-content'>
+      { loading ? <Loader /> : <div className='reg-content'>
         <h1>You're Welcome</h1>
         <h3>Register to continue!</h3>
         <input
@@ -88,7 +88,7 @@ function RegisterPage() {
         <h6 className='reg-text-reset' onClick={onReset}>
           RESET PASSWORD
         </h6>
-      </div>}
+      </div> }
     </div>
   );
 }

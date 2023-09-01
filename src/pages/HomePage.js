@@ -18,11 +18,11 @@ function HomePage() {
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
-      setLoading(true)
+      setLoading(true);
       if (user) {
         onValue(ref(database, `${auth.currentUser.uid}`), (snapshot) => {
           setTasks([]);
-          setLoading(false)
+          setLoading(false);
           const data = snapshot.val();
           if (data !== null) {
             Object.values(data).map((element) => {

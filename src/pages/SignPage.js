@@ -44,7 +44,7 @@ function SignPage() {
         setError(true);
       })
       .finally(() => {
-        setLoading(false)
+        setLoading(false);
       });
   };
   const onShowPswrd = () => {
@@ -68,7 +68,7 @@ function SignPage() {
           </Link>
         </div>
       </div>
-      {loading ? <Loader /> : <div className='sign-content'>
+      { loading ? <Loader /> : <div className='sign-content'>
         <h1>Welcome Back</h1>
         <h3>Hello Again! Sign up to continue!</h3>
         <input
@@ -94,7 +94,7 @@ function SignPage() {
         <h6 className='sign-text-reset' onClick={onReset}>
           RESET PASSWORD
         </h6>
-      </div>}
+      </div> }
     </div>
   );
 }
