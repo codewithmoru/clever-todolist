@@ -1,6 +1,4 @@
-# Innowise Lab Internship: Level 1: Clever to-do list
-
-[Task](https://drive.google.com/file/d/18I1PxOxZn2lwm__YeOtMNoWeiXygKwwN/view)
+# Clever to-do list
 
 App was created with the help of Firebase Database architecture and dayjs library.
 We have a basic routing with Authorization  / Registration pages.
